@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boostcamp-ragpractice"
+version = "0.1.0"
+description = "법률 문서 RAG 실습 프로젝트 - XML 문서 임베딩 및 Milvus 벡터 DB 저장"
+readme = "README.md"
+requires-python = "~=3.12"
+dependencies = [
+    "pymilvus>=2.3.0",
+    "sentence-transformers>=2.2.0",
+    "tqdm>=4.65.0",
+    "beautifulsoup4>=4.12.0",  # XML 파싱에 필수
+    "lxml>=4.9.0",  # BeautifulSoup의 xml 파서에 필요
+]
+[tool.setuptools]
+py-modules = ["main", "insert2db", "xml_parser"]
