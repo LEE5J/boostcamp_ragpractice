@@ -21,16 +21,16 @@ import torch
 # 설정
 MILVUS_HOST = "192.168.50.20"
 MILVUS_PORT = "19530"  # Milvus 기본 포트
-COLLECTION_NAME = "legal_documents"
+COLLECTION_NAME = "legal_documents_180K"
 RAW_CORPUS_PATH = "raw_corpus"
 EMBEDDING_MODEL = "google/embeddinggemma-300m"  # 한국어 임베딩 모델
 DIMENSION = 768  # 임베딩 차원
 CHUNK_SIZE = 500  # 텍스트 청크 크기 (문자 수)
 CHUNK_OVERLAP = 50  # 청크 간 겹치는 문자 수
-MAX_CHUNKS = 10000  # 최대 삽입할 청크 개수
-EMBEDDING_BATCH_SIZE = 4  # 임베딩 배치 크기 (메모리 부족 시 줄이기)
+MAX_CHUNKS = 1000000  # 최대 삽입할 청크 개수
+EMBEDDING_BATCH_SIZE = 8  # 임베딩 배치 크기 (메모리 부족 시 줄이기)
 USE_CPU = False  # True로 설정하면 CPU 사용 (MPS 메모리 부족 시)
-DROP_EXISTING_COLLECTION = True  # True로 설정하면 기존 컬렉션을 삭제하고 새로 생성
+DROP_EXISTING_COLLECTION = False  # True로 설정하면 기존 컬렉션을 삭제하고 새로 생성
 
 
 def split_text_into_chunks(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVERLAP) -> List[str]:
